@@ -1,51 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // your code here
-  document.getElementById('tasks')
-});
+const newTaskForm = document.querySelector('form');
+const inputBox = document.querySelector('#new-task-description');
+const listBox = document.querySelector('ul#tasks');
 
-const newTaskDescription = document.getElementById("new-task-description");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  //grab all the necessary DOM elements
-
-  //form and relevant input fields
-  phase-1-tasklister-mini-project
-  const newTaskDescription = document.getElementById("new-task-description");
-  const newTaskPriority = document.getElementById("new-task-priority");
-
-  //ul where new tasks will live on the DOM
-  const newTaskUl = document.getElementById("tasks");
-
-  //attach event listeners
-  newTaskForm.addEventListener("submit", createNewTask);
-});
-
-const createNewTask = event => {
-  event.preventDefault();
-  //stop form from trying to submit
-  const newTaskDescription = document.getElementById("new-task-description");
-  const newTask = document.createElement("li");
-  newTask.innerText = newTaskDescription.value;
-
-  appendNewTask(newTask);
-  event.target.reset();
-};
-
-const appendNewTask = task => {
-  document.getElementById("tasks").appendChild(task);
-};
+newTaskForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let newTask = document.createElement('li');
+  listBox.appendChild(newTask);
+  newTask.innerText = inputBox.value;
+})
